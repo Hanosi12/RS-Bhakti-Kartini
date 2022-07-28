@@ -62,7 +62,7 @@
                                 <div class="header-right-btn f-right d-none d-lg-block ml-30">
                                     @if (Route::has('login'))
                                         @auth
-                                            <a href="{{ url('/home') }}" class="btn header-btn">DASHBOARD</a>
+                                            <a href="{{ route('logouts') }}" class="btn header-btn">Home</a>
                                         @else
                                             <a href="{{ route('login') }}" class="btn header-btn">MASUK</a>
                                         @endauth
@@ -93,7 +93,8 @@
                             <div class="single-footer-caption mb-50">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="img/logo/logo2_footer.png" alt="" width="300"></a>
+                                    <a href="index.html"><img src="img/logo/logo2_footer.png" alt=""
+                                            width="300"></a>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +122,8 @@
                                     <div id="mc_embed_signup">
                                         <form target="_blank"
                                             action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                            method="get" class="subscribe_form relative mail_part" novalidate="true">
+                                            method="get" class="subscribe_form relative mail_part"
+                                            novalidate="true">
                                             <input type="email" name="EMAIL" id="newsletter-form-email"
                                                 placeholder=" Email Address " class="placeholder hide-on-focus"
                                                 onfocus="this.placeholder = ''"
@@ -212,6 +214,7 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 

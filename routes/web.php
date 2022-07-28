@@ -5,6 +5,7 @@ use App\Http\Controllers\Action\PasienController;
 use App\Http\Controllers\Action\DokterController;
 use App\Http\Controllers\Action\DeveloperController;
 use App\Http\Controllers\Action\AdminController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -26,25 +27,26 @@ Route::get('/dokter', function () { return view('/UI/Home/dokter');});
 Route::get('/artikel', function () { return view('/UI/Home/artikel');});
 Route::get('/artikeldetail', function () { return view('/UI/Home/artikeldetail');});
 Route::get('/kontak', function () { return view('/UI/Home/kontak');});
-
+Route::get('/logouts', [LoginController::class, 'logout'])->name('logouts');
+Route::get('/home', [AdminController::class, 'index'])->name('home');
 Auth::routes();
 
 //Admin Routes
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/home', [AdminController::class, 'index'])->name('Ahome');
+    Route::get('/home', [AdminController::class, 'index'])->name('home');
 });
 
 //Pasien Routes
 Route::middleware(['auth','pasien'])->group(function(){
-    Route::get('/home', [PasienController::class, 'index'])->name('Phome');
+    Route::get('/home', [PasienController::class, 'index'])->name('home');
 });
 
 //Developer Routes
 Route::prefix('Developer')->middleware(['auth','developer'])->group(function(){
-    Route::get('/home', [DeveloperController::class, 'index'])->name('Dhome');
+    Route::get('/home', [DeveloperController::class, 'index'])->name('home');
 });
 
 //Dokter Routes
 Route::prefix('Dokter')->middleware(['auth','dokter'])->group(function(){
-    Route::get('/home', [DokterController::class, 'index'])->name('Uhome');
+    Route::get('/home', [DokterController::class, 'index'])->name('home');
 });
